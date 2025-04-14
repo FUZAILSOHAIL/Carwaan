@@ -11,7 +11,8 @@ apply(plugin = "com.google.gms.google-services") // ✅ Apply it here for Fireba
 android {
     namespace = "com.example.carwaan"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
