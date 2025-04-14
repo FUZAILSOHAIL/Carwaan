@@ -116,8 +116,8 @@ class RideMapScreen extends StatelessWidget {
         children: [
         FlutterMap(
           options: MapOptions(
-            center: LatLng(24.8607, 67.0011),  // Coordinates for Karachi, Pakistan
-            zoom: 13.0,
+            initialCenter: LatLng(24.8607, 67.0011),  // Coordinates for Karachi, Pakistan
+            initialZoom: 13.0,
           ),
           children: [
             TileLayer(

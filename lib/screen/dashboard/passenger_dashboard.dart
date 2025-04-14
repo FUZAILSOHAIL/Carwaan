@@ -156,9 +156,10 @@ class _PassengerDashboardState extends State<PassengerDashboard> {
           /// OpenStreetMap using Flutter Map
           FlutterMap(
             options: MapOptions(
-              center: LatLng(24.8607, 67.0011),  // Coordinates for Karachi, Pakistan
-              zoom: 13.0,
+              initialCenter: const LatLng(24.8607, 67.0011),  // Coordinates for Karachi, Pakistan
+              initialZoom: 13.0,
               onTap: (tapPosition, latlng) {
+                if (isFindingDriver) return; // Ignore taps while finding a driver
                 setState(() {
                   if (isSelectingPickup) {
                     pickupLocation = latlng;

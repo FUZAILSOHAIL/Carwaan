@@ -24,6 +24,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
   ];
 
   int selectedRideIndex = -1;
+  int selectedDriverIndex = -1;  // Added separate variable for driver selection
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +60,9 @@ class _AdminDashboardState extends State<AdminDashboard> {
             child: 
             FlutterMap(
               options: MapOptions(
-                center: LatLng(24.8607, 67.0011),  // Coordinates for Karachi, Pakistan
-                zoom: 12.0,
-                interactiveFlags: InteractiveFlag.all & ~InteractiveFlag.rotate,
-              ),
+            initialCenter: LatLng(24.8607, 67.0011),  // Coordinates for Karachi, Pakistan
+            initialZoom: 12.0,
+          ),
               children: [
                 TileLayer(
                   urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -77,12 +77,12 @@ class _AdminDashboardState extends State<AdminDashboard> {
                       child: InkWell(
                         onTap: () {
                           setState(() {
-                            selectedRideIndex = index;
+                            selectedDriverIndex = index;  // Set selected driver index instead
                           });
                         },
                         child: Icon(
                           Icons.directions_car,
-                          color: selectedRideIndex == index ? Colors.yellow : Colors.lightBlue,
+                          color: selectedDriverIndex == index ? Colors.yellow : Colors.lightBlue,  // Use selectedDriverIndex for highlighting
                           size: 30,
                         ),
                       ),
